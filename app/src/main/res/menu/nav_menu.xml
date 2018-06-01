@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_account"
+        android:title="@string/nav_account"
+        android:icon="@drawable/ic_person_gray_24dp"/>
+
+    <item
+        android:id="@+id/nav_setting"
+        android:title="@string/nav_setting"
+        android:icon="@drawable/ic_setting_gray_24dp"/>
+
+    <item
+        android:id="@+id/nav_share"
+        android:title="@string/nav_share"
+        android:icon="@drawable/ic_share_grey_24dp"/>
+
+</menu>
