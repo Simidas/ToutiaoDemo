@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -87,4 +88,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return false;
     }
+
+    /**
+     * feature-1
+     * display HelloWorld
+     * @param view
+     */
+    public void feature1(View view) {
+
+//        if (btn_feature_1.getText().toString().equals("功能1")) {
+//            btn_feature_1.setText(R.string.feature_1_dis);
+//        } else {
+//            btn_feature_1.setText(R.string.feature_1);
+//        }
+    }
+
 }
