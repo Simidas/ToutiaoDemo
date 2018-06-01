@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        } else {
 //            btn_feature_1.setText(R.string.feature_1);
 //        }
+
     }
 
 }
