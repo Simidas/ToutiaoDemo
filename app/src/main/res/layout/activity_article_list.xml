@@ -14,4 +14,11 @@
         android:text="发起网络请求"/>
 
 
+    <com.zhuwd.demo.widget.MyDrawView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Blue"
+        />
+
+
 </LinearLayout>
