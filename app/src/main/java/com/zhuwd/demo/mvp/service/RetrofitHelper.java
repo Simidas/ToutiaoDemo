@@ -3,10 +3,10 @@ package com.zhuwd.demo.mvp.service;
 import android.content.Context;
 
 import com.google.gson.GsonBuilder;
+import com.zhuwd.demo.util.LoggerInterceptor;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -20,8 +20,10 @@ public class RetrofitHelper {
 
     private Context mContext;
 
-    OkHttpClient client = new OkHttpClient();
-    GsonConverterFactory factory = GsonConverterFactory.create(new GsonBuilder().create());
+    OkHttpClient client = new OkHttpClient.Builder()
+                                .addNetworkInterceptor(new LoggerInterceptor("Toutiao"))
+                                .build();
+    GsonConverterFactory factory = GsonConverterFactory.create(new GsonBuilder().setLenient().create());
     private static RetrofitHelper instance = null;
     private Retrofit mRetrofit = null;
     public static RetrofitHelper getInstance(Context context){
@@ -41,10 +43,10 @@ public class RetrofitHelper {
 
     private void resetApp() {
         mRetrofit = new Retrofit.Builder()
-                .baseUrl("https://api.douban.com/v2/")
+                .baseUrl("http://www.wanandroid.com/")
                 .client(client)
                 .addConverterFactory(factory)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+//                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
     }
 
