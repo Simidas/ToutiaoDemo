@@ -2,12 +2,16 @@ package com.zhuwd.demo.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.zhuwd.demo.R;
 
 /**
  * Created by Lenovo on 2018/8/14.
@@ -81,8 +85,8 @@ public class MyDrawView extends View {
 //        canvas.drawPath(mPath,mPaint);
 
 //        //方法2 xxxTo()  画线
-        mPath.lineTo(300,300);
-        mPath.rLineTo(300,0);//relative相对上个点，往右画300px
+//        mPath.lineTo(300,300);
+//        mPath.rLineTo(300,0);//relative相对上个点，往右画300px
 //        canvas.drawPath(mPath,mPaint1);
 
         //quadTo(float x1, float y1, float x2, float y2) / rQuadTo(float dx1, float dy1, float dx2, float dy2) 画二次贝塞尔曲线
@@ -91,11 +95,21 @@ public class MyDrawView extends View {
 //        mPath.rMoveTo(300,0);
 //        mPath.rLineTo(0,300);
 //        canvas.drawPath(mPath,mPaint1);
-        mPath.arcTo(300,300,600,600,90,90,true);//// 强制移动到弧形起点（无痕迹）
-        canvas.drawPath(mPath,mPaint1);
 
+//        mPath.arcTo(300,300,600,600,90,90,true);//// 强制移动到弧形起点（无痕迹）
+        mPath.addCircle(400,400,200, Path.Direction.CW);
+        mPath.addCircle(550,400,200, Path.Direction.CW);
+        mPath.setFillType(Path.FillType.INVERSE_EVEN_ODD);
+        canvas.drawPath(mPath,mPaint);
+
+        mPaint.setTextSize(100);//文字大小
+        canvas.drawText("你好",400,800,mPaint);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        canvas.drawBitmap(bitmap,600,700,mPaint);
         //addArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle) / addArc(RectF oval, float startAngle, float sweepAngle)
         //又是一个弧形的方法。一个叫 arcTo ，一个叫 addArc()，都是弧形，区别在哪里？其实很简单： addArc() 只是一个直接使用了 forceMoveTo = true 的简化版 arcTo() 。
+
 
     }
 }
